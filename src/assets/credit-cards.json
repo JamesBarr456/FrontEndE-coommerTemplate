@@ -1,0 +1,16 @@
+{
+    "basePath": "/credit-cards/",
+    "cards": [
+      { "name": "visa", "filename": "visa@2x.png" },
+      { "name": "amex", "filename": "amex@2x.png" },
+      { "name": "cabal", "filename": "cabal@2x.png" },
+      { "name": "cabaldebit", "filename": "cabaldebit@2x.png" },
+      { "name": "custom", "filename": "custom@2x.png" },
+      { "name": "mercadopago", "filename": "mercadopago@2x.png" },
+      { "name": "mastercard", "filename": "mastercard@2x.png" },
+      { "name": "pagofacil", "filename": "pagofacil@2x.png" },
+      { "name": "rapipago", "filename": "rapipago@2x.png" },
+      { "name": "tarjeta-naranja", "filename": "tarjeta-naranja@2x.png" },
+      { "name": "visadebit", "filename": "visadebit@2x.png" }
+    ]
+  }
