@@ -66,23 +66,40 @@ export const getProductById = async (
 };
 
 // 🔹 DELETE by ID
-export const deleteProductById = async (id: string): Promise<IProduct[]> => {
+export const deleteProductById = async (
+  id: string
+): Promise<IProduct | null> => {
   await fakeDelay(150);
+  const productToDelete = products.find((p) => p.sku === id) || null;
   products = products.filter((p) => p.sku !== id);
-  return products;
+  return productToDelete;
 };
 
 // 🔹 ADD new product
-export const addProductToApi = async (data: IProduct): Promise<IProduct> => {
+export const addProductToApi = async (
+  data: Partial<IProduct>
+): Promise<IProduct> => {
   await fakeDelay(200);
 
-  // si no tiene SKU, inventamos uno
-  if (!data.sku) {
-    data.sku = "MOCK-" + Date.now();
-  }
+  const newProduct: IProduct = {
+    _id: data._id || "ID-" + Date.now(),
+    sku: data.sku || "MOCK-" + Date.now(),
+    name: data.name || "Producto por defecto",
+    description: data.description || "",
+    price: data.price ?? 0,
+    size: data.size || [],
+    stock: data.stock ?? 0,
+    images: data.images || [],
+    discount: data.discount ?? 0,
+    genre: data.genre || "hombre",
+    status: data.status || "active",
+    createdAt: data.createdAt || new Date().toISOString(),
+    updatedAt: data.updatedAt || new Date().toISOString(),
+    brand: data.brand || { name: "Marca por defecto", image: "" },
+  };
 
-  products.push(data);
-  return data;
+  products.push(newProduct);
+  return newProduct;
 };
 
 // 🔹 UPDATE product

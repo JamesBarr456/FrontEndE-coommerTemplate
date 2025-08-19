@@ -177,7 +177,7 @@ export async function addProductAction(prevState: any, formData: FormData) {
     if (isUpdating) {
       putProductToApi(productId, productData);
     } else {
-      addProductToApi(productData);
+      addProductToApi(productData as IProduct);
     }
 
     revalidatePath("/products");

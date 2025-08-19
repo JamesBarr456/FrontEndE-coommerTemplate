@@ -73,11 +73,11 @@ export const SizeSelector = ({ product }: Props) => {
         {product.size.map((size, i) => (
           <Button
             key={i}
-            onClick={() => handleSizeSelection(size)}
+            onClick={() => handleSizeSelection(+size)}
             variant={"outline"}
             className={cx("w-12 h-12", {
               "bg-orange-500 text-white hover:brightness-90 hover:bg-orange-500 hover:text-white":
-                size === sizeSelect,
+                +size === sizeSelect,
             })}
           >
             {size}

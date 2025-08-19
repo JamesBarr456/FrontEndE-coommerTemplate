@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 import { Button } from "../ui/button";
-import { CardProduct } from "./Card";
+import { CardProduct } from "./card-product";
 import { GetAllProductsResponse } from "@/interfaces/product";
 import { GridProductsSkeleton } from "../skeletons/grid-products-skeleton";
 import Link from "next/link";

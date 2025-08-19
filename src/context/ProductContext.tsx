@@ -15,8 +15,8 @@ interface ProductContextType {
   productItems: IProduct[] | null;
   loading: boolean;
 
-  getProductForName: (name: string) => Promise<void>;
-  getProductForId: (id: string) => Promise<void>;
+  getProductForId: (id: string) => Promise<IProduct | undefined>;
+  getProductForName: (name: string) => Promise<IProduct | undefined>;
 }
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined);
@@ -30,7 +30,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       try {
         setLoading(true);
         const resp = await getProducts();
-        setProductItems(resp);
+        setProductItems(resp.products);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching cart:", error);

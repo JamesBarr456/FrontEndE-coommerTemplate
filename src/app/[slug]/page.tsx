@@ -24,7 +24,7 @@ export default async function Detail({ params }: Props) {
   let { slug } = params;
   slug = decodeURIComponent(slug);
 
-  const product: IProduct = await getProduct(slug);
+  const product = await getProduct(slug);
 
   if (!product) return <NotFound />;
 

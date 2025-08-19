@@ -1,18 +1,22 @@
-export const userMock = [
+import { IUser } from "@/interfaces/users";
+
+export const userMock: IUser[] = [
   {
-    id: "1",
+    _id: "1",
     first_name: "Jack",
     last_name: "Skellington",
     dni: "39320266",
     number_phone: "3704441861",
     email: "test1@gmail.com",
-    password: "39320266",
+    password: "39320266" as string,
     avatar:
       "https://www.shutterstock.com/image-vector/vector-halloween-faces-nightmare-before-260nw-2047758854.jpg",
     status: "admin",
+    created_at: new Date("2023-08-10T10:00:00Z"),
+    updated_at: new Date("2023-08-15T15:30:00Z"),
   },
   {
-    id: "2",
+    _id: "2",
     first_name: "Sally",
     last_name: "Flinkestein",
     dni: "40822345",
@@ -22,5 +26,7 @@ export const userMock = [
     avatar:
       "https://i.pinimg.com/474x/45/8c/7b/458c7b122443e6ccf358a5b214cd2ef9.jpg",
     status: "user",
+    created_at: new Date("2023-08-10T10:00:00Z"),
+    updated_at: new Date("2023-08-15T15:30:00Z"),
   },
 ];

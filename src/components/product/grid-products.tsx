@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { CardProduct } from "./card";
+import { CardProduct } from "./card-product";
 import { GetAllProductsResponse } from "@/interfaces/product";
 import { GridProductsSkeleton } from "../skeletons/grid-products-skeleton";
 import { Paginations } from "../pagination/pagination";

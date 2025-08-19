@@ -14,6 +14,7 @@ import { useFormState, useFormStatus } from "react-dom";
 import { Asterisk } from "lucide-react";
 import { ButtonSubmit } from "@/components/others/buttons/button-submit";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
+import { IUser } from "@/interfaces/users";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { loginAction } from "@/actions";
@@ -40,7 +41,21 @@ export default function RegistrationForm() {
 
   useEffect(() => {
     if (state?.success) {
-      login(state.token, state.userData);
+      const user: IUser = {
+        _id: state.userData._id,
+        first_name: state.userData.first_name,
+        last_name: state.userData.last_name,
+        dni: state.userData.dni,
+        number_phone: state.userData.number_phone,
+        email: state.userData.email,
+        password: state.userData.password,
+        avatar: state.userData.avatar,
+        status: state.userData.status,
+        created_at: state.userData.created_at,
+        updated_at: state.userData.updated_at,
+      };
+
+      login(state.token, user);
     }
   }, [state, login]);
 

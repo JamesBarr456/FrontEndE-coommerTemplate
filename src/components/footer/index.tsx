@@ -2,7 +2,7 @@ import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 
 import Image from "next/image";
 import Link from "next/link";
-import { Logo } from "../logo/logo";
+import { Logo } from "../logo";
 import credit_cards from "@/assets/credit-cards.json";
 
 export default function Footer() {

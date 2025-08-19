@@ -9,11 +9,13 @@ export const registerUser = async (newUser: IRegister) => {
   const exists = userMock.find((u) => u.email === newUser.email);
   if (exists) throw new Error("User already exists");
 
-  const createdUser = {
+  const createdUser: IUser = {
     ...newUser,
-    id: (userMock.length + 1).toString(),
+    _id: (userMock.length + 1).toString(),
     status: "user",
     avatar: "",
+    created_at: new Date(),
+    updated_at: new Date(),
   };
 
   userMock.push(createdUser);
@@ -34,7 +36,7 @@ export const getUsers = async () => {
 };
 
 export const deleteUser = async (id: string) => {
-  const index = userMock.findIndex((u) => u.id === id);
+  const index = userMock.findIndex((u) => u._id === id);
   if (index === -1) throw new Error("User not found");
 
   const deleted = userMock.splice(index, 1);
@@ -42,7 +44,7 @@ export const deleteUser = async (id: string) => {
 };
 
 export const putUser = async (id: string, data: Partial<IUser>) => {
-  const user = userMock.find((u) => u.id === id);
+  const user = userMock.find((u) => u._id === id);
   if (!user) throw new Error("User not found");
 
   Object.assign(user, data);
@@ -53,7 +55,7 @@ export const putPasswordUser = async (
   id: string,
   data: { currentPassword: string; newPassword: string }
 ) => {
-  const user = userMock.find((u) => u.id === id);
+  const user = userMock.find((u) => u._id === id);
   if (!user) throw new Error("User not found");
 
   if (user.password !== data.currentPassword) {

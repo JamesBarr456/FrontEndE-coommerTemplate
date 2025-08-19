@@ -32,7 +32,7 @@ import { ICartItem } from "@/interfaces/cart";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 import { format } from "date-fns";
-import { getAllCartByUserAPI } from "@/services/cart";
+import { getAllCartByUser } from "@/services/cart";
 import { useAuth } from "@/context/AuthContext";
 
 export const OrdersContent = () => {
@@ -43,7 +43,7 @@ export const OrdersContent = () => {
     async function allOrdersUser() {
       try {
         if (user) {
-          const orders = await getAllCartByUserAPI(user?._id);
+          const orders = await getAllCartByUser(user?._id);
           setOrders(orders);
         }
       } catch (error) {

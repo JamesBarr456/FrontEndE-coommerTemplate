@@ -9,7 +9,7 @@ import {
 
 import { Button } from "../ui/button";
 import Link from "next/link";
-import { Logo } from "../logo/logo";
+import { Logo } from "../logo";
 import { Menu } from "lucide-react";
 
 export const Sidebar = () => {

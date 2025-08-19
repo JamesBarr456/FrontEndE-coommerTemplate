@@ -1,6 +1,6 @@
 import { IconCart } from "./cart-button";
 import Link from "next/link";
-import { Logo } from "../logo/logo";
+import { Logo } from "../logo";
 import { Sidebar } from "./sidebar";
 import { UserButton } from "./user-button";
 

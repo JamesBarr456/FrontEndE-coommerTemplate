@@ -86,15 +86,16 @@ export const productSchema = z.object({
   genre: z.enum(["hombre", "mujer", "kids"], {
     message: "Category is required",
   }),
-  price: z
-    .string({ message: "Price is required" })
-    .regex(numberRegex, { message: "Price must contain only numbers" }),
-  discount: z
-    .string({ message: "Discount is required" })
-    .regex(numberRegex, { message: "Discount must contain only numbers" }),
-  stock: z
-    .string({ message: "Stock is required" })
-    .regex(numberRegex, { message: "Stock must contain only numbers" }),
+  price: z.coerce
+    .number({ invalid_type_error: "Price must be a number" })
+    .min(0, { message: "Price must be greater than 0" }),
+  discount: z.coerce
+    .number({ invalid_type_error: "Discount must be a number" })
+    .min(0, { message: "Discount must be greater than or equal to 0" }),
+  stock: z.coerce
+    .number({ invalid_type_error: "Stock must be a number" })
+    .int({ message: "Stock must be an integer" })
+    .min(0, { message: "Stock must be greater than or equal to 0" }),
   imageUrl: z.string().optional(),
   brand: z.object({
     name: z.string({ message: "Brand name is required" }),
@@ -102,5 +103,5 @@ export const productSchema = z.object({
   }),
   description: z.string({ message: "Description is required" }),
   sku: z.string({ message: "SKU is required" }),
-  size: z.string().optional(),
+  size: z.array(z.string()).optional(),
 });
