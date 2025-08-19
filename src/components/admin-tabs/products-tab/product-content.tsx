@@ -35,7 +35,7 @@ import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import Loading from "@/components/others/loading";
+import Loading from "@/components/others/Loading";
 import { Paginations } from "@/components/pagination/pagination";
 import { ProductForm } from "./product-form";
 

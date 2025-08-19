@@ -21,7 +21,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import Loading from "../others/loading";
+import Loading from "@/components/others/Loading";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Slider } from "@/components/ui/slider";
 import { SlidersHorizontal } from "lucide-react";

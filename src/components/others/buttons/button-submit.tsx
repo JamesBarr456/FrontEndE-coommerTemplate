@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import Loading from "../loading";
+import Loading from "@/components/others/Loading";
 import { useFormStatus } from "react-dom";
 
 interface ButtonSubmitProps {

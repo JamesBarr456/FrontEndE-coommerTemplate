@@ -20,7 +20,7 @@ import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { IUser } from "@/interfaces/users";
-import Loading from "@/components/others/loading";
+import Loading from "@/components/others/Loading";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 export const UserContent = () => {
@@ -67,7 +67,7 @@ export const UserContent = () => {
       const updatedUser = await putUser(user._id, { status: newRole });
       setUsers((prevUsers) =>
         prevUsers.map((u) =>
-          u._id === updatedUser._id ? { ...u, status: newRole } : u
+          u._id === updatedUser.id ? { ...u, status: newRole } : u
         )
       );
     } catch (error) {
