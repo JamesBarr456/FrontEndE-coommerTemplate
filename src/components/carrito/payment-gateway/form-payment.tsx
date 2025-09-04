@@ -174,6 +174,13 @@ export const PaymentFormSteps = () => {
       ? shippingRates[selectedLocality as keyof typeof shippingRates]
       : null;
 
+      // Agregado: mostrar datos completos en consola
+    console.log("=== ORDEN COMPLETA ===");
+    console.log("Datos del Cliente:", data);
+    console.log("Items del Carrito:", cartItems?.items);
+    console.log("Total calculado:", total);
+    console.log("=====================");
+
     let message = `🛒 *NUEVO ORDEN DE PEDIDO*\n\n`;
     message += `👤 *Datos del Cliente:*\n`;
     message += `Nombre: ${data.first_name} ${data.last_name}\n`;
@@ -223,7 +230,7 @@ export const PaymentFormSteps = () => {
 
   const onSubmit = async (data: FormData) => {
     try {
-      console.log(data)
+      
       // await updateStatusCart("completed")
       sendToWhatsApp(data);
       setIsDialogOpen(true);
