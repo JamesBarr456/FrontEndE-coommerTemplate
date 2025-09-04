@@ -223,6 +223,7 @@ export const PaymentFormSteps = () => {
 
   const onSubmit = async (data: FormData) => {
     try {
+      console.log(data)
       // await updateStatusCart("completed")
       sendToWhatsApp(data);
       setIsDialogOpen(true);
